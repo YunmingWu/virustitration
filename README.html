@@ -359,39 +359,56 @@ polymerase chain reaction (qPCR) data. It helps researchers perform a
 linear regression on their standard curve data, calculate key metrics
 like PCR efficiency, and predict the virus titer of unknown samples.
 This app is based on the protocol describe here:</p>
+<div id="how-to-use" class="section level2">
+<h2>How to use</h2>
+<div id="prerequisites" class="section level3">
+<h3>Prerequisites:</h3>
+<p>You need to have R and RStudio installed on your computer. The app
+also requires the following R packages: shiny ggplot2 DT. The app has a
+built-in check to automatically install any missing packages. However,
+you can manually install them by running this command in your R console:
+install.packages(c(“shiny”, “ggplot2”, “DT”))</p>
 </div>
-<div id="how-to-use" class="section level1">
-<h1>How to use</h1>
-<p>Prerequisites: You need to have R and RStudio installed on your
-computer. The app also requires the following R packages: shiny ggplot2
-DT. The app has a built-in check to automatically install any missing
-packages. However, you can manually install them by running this command
-in your R console: install.packages(c(“shiny”, “ggplot2”, “DT”))</p>
-<p>Download: First download the entire folder to your local
-computer.</p>
-<p>Run the App: Open the app.R file in RStudio and click the “Run App”
-button at the top-right of the script editor.</p>
-<p>In the app: Step I: Input Your Standard Curve Data An editable table
-where you can enter the Cq and SQ values from your standard curve.</p>
-<p>Step II: Predict Sample Quantity (SQ) Enter the Cq value of your
-unknown sample. The app will display the predicted starting quantity
-(SQ) of that sample.</p>
-<p>Step III: Calculate Virus Titer Enter the viral genome length (in
-base pairs) and the dilution factor. The app will display the final
-calculated virus titer in “genomic copies/mL”.</p>
+<div id="download" class="section level3">
+<h3>Download:</h3>
+<p>First download the entire folder to your local computer.</p>
 </div>
-<div id="how-it-works" class="section level1">
-<h1>How It Works</h1>
+<div id="run-the-app" class="section level3">
+<h3>Run the App:</h3>
+<p>Open the app.R file in RStudio and click the “Run App” button at the
+top-right of the script editor.</p>
+</div>
+<div id="in-the-app" class="section level3">
+<h3>In the app:</h3>
+<div id="step-i-input-your-standard-curve-data" class="section level4">
+<h4>Step I: Input Your Standard Curve Data</h4>
+<p>An editable table where you can enter the Cq and SQ values from your
+standard curve.</p>
+</div>
+<div id="step-ii-predict-sample-quantity-sq" class="section level4">
+<h4>Step II: Predict Sample Quantity (SQ)</h4>
+<p>Enter the Cq value of your unknown sample. The app will display the
+predicted starting quantity (SQ) of that sample.</p>
+</div>
+<div id="step-iii-calculate-virus-titer" class="section level4">
+<h4>Step III: Calculate Virus Titer</h4>
+<p>Enter the viral genome length (in base pairs) and the dilution
+factor. The app will display the final calculated virus titer in
+“genomic copies/mL”.</p>
+</div>
+</div>
+</div>
+<div id="how-it-works" class="section level2">
+<h2>How It Works</h2>
 <p>The app uses the following formulas for its calculations:</p>
 <p>Standard Curve Equation: y=mx+b where y is the Cq value and x is the
 log<span class="math inline">\(_{10}\)</span>(SQ).</p>
-<p>PCR Efficiency: Efficiency=(10(−1/m) −1) * 100 where m is the slope
-of the standard curve.</p>
 <p>Virus Titer: The formula used for this calculation is: Titer = {Sq *
 10-9 * 10^23 (molar to molecule number) * dilution factor} / { genome
 plasmid length * 650 (average molecular weight of a single nucleotide)
 }</p>
 <p>SQ: The predicted starting quantity of the sample.</p>
+</div>
 </div>
 
 
