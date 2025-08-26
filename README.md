@@ -1,5 +1,7 @@
 # Virus Titer Analysis App
 
+![Virus titration tool](www/logo.png)
+
 This is a Shiny app designed for the analysis of quantitative polymerase chain reaction (qPCR) data. 
 It helps researchers perform a linear regression on their standard curve data, calculate key metrics like PCR efficiency, and predict the virus titer of unknown samples.
 This app is based on the protocol describe here:
@@ -20,6 +22,8 @@ First download the entire folder to your local computer.
 Open the app.R file in RStudio and click the "Run App" button at the top-right of the script editor.
 
 ### In the app:
+![app interface](www/virustiterapp_instruction1.png)
+
 #### Step I: Input Your Standard Curve Data
 An editable table where you can enter the Cq and SQ values from your standard curve.
 
@@ -38,7 +42,7 @@ The app uses the following formulas for its calculations:
 
 Standard Curve Equation:
 y=mx+b
-where y is the Cq value and x is the log$_{10}$(SQ).
+where y is the Cq value and x is the log10(SQ).
 
 
 Virus Titer:
