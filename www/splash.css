@@ -1,0 +1,17 @@
+/* splash.css */
+#splash_screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Or a color that matches your brand */
+  z-index: 1000; /* Ensure it's on top of all other elements */
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#splash_screen.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Make it unclickable after it fades */
+}

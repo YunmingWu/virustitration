@@ -13,9 +13,24 @@ library(DT)
 
 # Define the user interface (UI)
 ui <- fluidPage(
+  # Add the splash screen div
+  div(
+    id = "splash_screen",
+    # Center the logo and add an image tag
+    div(
+      img(src = "logo.png", style = "width: 500px;"),
+      style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+    )
+  ),
+  
+  # Add CSS and JavaScript for the splash screen
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "splash.css"),
+    tags$script(src = "splash.js")
+  ),
   
   # App title
-  titlePanel("TaqMan qPCR Standard Curve Analysis"),
+  titlePanel("Virus titration calculator"),
   
   # Sidebar layout with input and output sections
   sidebarLayout(
@@ -154,14 +169,14 @@ server <- function(input, output, session) {
     }
     
     ggplot(results$data, aes(x = logSQ, y = Cq)) +
-      geom_point(color = "blue", size = 3) +
-      geom_smooth(method = "lm", se = FALSE, color = "red") +
+      geom_point(color = "royalblue", size = 3) +
+      geom_smooth(method = "lm", se = FALSE, color = "darkred") +
       labs(
         title = "Standard Curve",
         x = "Log10(Starting Quantity)",
         y = "Quantification Cycle (Cq)"
       ) +
-      theme_minimal(base_size = 14)
+      theme_classic(base_size = 14)
   })
   
   # Reactive expression to predict SQ from a given Cq
@@ -183,7 +198,7 @@ server <- function(input, output, session) {
   output$predictedSq <- renderText({
     req(predicted_sq())
     
-    paste("Predicted SQ:", format(predicted_sq(), scientific = TRUE, digits = 4))
+    paste("Predicted SQ:", format(predicted_sq(), scientific = TRUE, digits = 4), "ng")
   })
   
   # Reactive expression to calculate virus titer
